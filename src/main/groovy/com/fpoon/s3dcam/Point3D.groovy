@@ -1,6 +1,9 @@
-package com.fpoon.s3dcam;
+package com.fpoon.s3dcam
 
-class Point3D {
+import groovy.transform.InheritConstructors;
+
+@InheritConstructors
+class Point3D extends Point {
     double x,y,z;
 
     Point3D(double x, double y, double z) {

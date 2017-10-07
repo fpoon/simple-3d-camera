@@ -10,14 +10,15 @@ import javax.swing.border.Border
 import java.awt.BorderLayout
 import java.awt.Color
 import java.awt.FlowLayout
+import java.awt.Graphics
 
 class Main {
     static void main(String[] args) {
-        def builder = new SwingBuilder();
+        def swing = new SwingBuilder()
 
-        def frame = builder.frame(
+        def frame = swing.frame(
                 title: "Simple 3D camera",
-                size: [400, 400],
+                size: [600, 400],
                 defaultCloseOperation: WindowConstants.EXIT_ON_CLOSE
         ) {
             panel(layout: new BorderLayout()) {
@@ -31,10 +32,14 @@ class Main {
                     button(text: "RESET")
 
                 }
-                panel(constraints: BorderLayout.CENTER, background: Color.BLACK, id: "RENDER_PANEL")
+                panel(constraints: BorderLayout.CENTER, background: Color.BLACK, id: "renderPanel")
             }
         }
-
         frame.setVisible(true);
+        Camera camera = new Camera(swing."renderPanel")
+        camera.edges.add(new Edge(new Point(10, 20), new Point(150, 40)))
+        camera.edges.add(new Edge(new Point(10, 20), new Point(15, 40)))
+        camera.edges.add(new Edge(new Point(100, 20), new Point(150, 4)))
+        camera.draw()
     }
 }
