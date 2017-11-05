@@ -1,28 +1,15 @@
 package com.fpoon.s3dcam
 
 import groovy.swing.SwingBuilder
-import groovy.swing.factory.BoxLayoutFactory
+import javafx.geometry.Point3D
 
 import javax.swing.BorderFactory
 import javax.swing.BoxLayout
 import javax.swing.WindowConstants
-import javax.swing.border.Border
 import java.awt.BorderLayout
 import java.awt.Color
-import java.awt.FlowLayout
-import java.awt.Graphics
-import java.awt.event.ContainerAdapter
 import java.awt.event.KeyAdapter
 import java.awt.event.KeyEvent
-import java.awt.event.KeyListener
-import java.awt.event.MouseAdapter
-import java.awt.event.MouseEvent
-import java.awt.event.MouseListener
-import java.awt.event.WindowEvent
-import java.awt.event.WindowStateListener
-import java.beans.PropertyChangeEvent
-import java.beans.PropertyChangeListener
-import java.security.Key
 
 class Main {
     static Camera camera;
@@ -105,6 +92,8 @@ class Main {
         Scene scene = new Scene()
         def renderPanel = swing."renderPanel"
         camera = new Camera(renderPanel, scene)
+        camera.translate(new Point3D(-370/2, -400, 200))
+        camera.rotate(new Point3D(-Math.PI/4, 0, 0))
         camera.render()
     }
 }
