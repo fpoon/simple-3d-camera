@@ -78,6 +78,24 @@ class Main {
                     case KeyEvent.VK_SUBTRACT:
                         camera?.zoom(-Camera.FOCAL_CHANGE)
                         break
+                    case KeyEvent.VK_NUMPAD8:
+                        camera?.rotate(Camera.ROTATION_UP)
+                        break
+                    case KeyEvent.VK_NUMPAD2:
+                        camera?.rotate(Camera.ROTATION_DOWN)
+                        break
+                    case KeyEvent.VK_NUMPAD4:
+                        camera?.rotate(Camera.ROTATION_LEFT)
+                        break
+                    case KeyEvent.VK_NUMPAD6:
+                        camera?.rotate(Camera.ROTATION_RIGHT)
+                        break
+                    case KeyEvent.VK_NUMPAD7:
+                        camera?.rotate(Camera.ROTATION_Z_LEFT)
+                        break
+                    case KeyEvent.VK_NUMPAD9:
+                        camera?.rotate(Camera.ROTATION_Z_RIGHT)
+                        break
                 }
                 camera?.render()
             }
