@@ -70,12 +70,19 @@ class Main {
                                             (KeyEvent.VK_W): Camera.TRANSLATION_FORWARD,
                                             (KeyEvent.VK_S): Camera.TRANSLATION_BACKWARD
                                         ]
-                        camera.translate(translations[e.keyCode])
+                        camera?.translate(translations[e.keyCode])
+                        break
+                    case e.VK_ADD:
+                        camera?.zoom(Camera.FOCAL_CHANGE)
+                        break
+                    case KeyEvent.VK_SUBTRACT:
+                        camera?.zoom(-Camera.FOCAL_CHANGE)
                         break
                 }
                 camera?.render()
             }
         })
+
         frame.setVisible(true)
         Scene scene = new Scene()
         def renderPanel = swing."renderPanel"

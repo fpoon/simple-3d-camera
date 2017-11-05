@@ -9,6 +9,9 @@ import java.awt.Color
 class Camera {
 
     static final double TRANSLATION = 10.0
+    static final double FOCAL_CHANGE = 10.0
+    static final double FOCAL_MIN = 50.0
+    static final double FOCAL_MAX = 1000.0
     static final Point3D TRANSLATION_UP = new Point3D(0, +TRANSLATION, 0);
     static final Point3D TRANSLATION_DOWN = new Point3D(0, -TRANSLATION, 0);
     static final Point3D TRANSLATION_LEFT = new Point3D(-TRANSLATION, 0, 0);
@@ -29,6 +32,16 @@ class Camera {
         this.translation = new Point3D(0,0,0)
     }
 
+    void translate(Point3D vector) {
+        translation = translation.add(vector)
+    }
+
+    void zoom(double change) {
+        focal += change
+        if (focal > FOCAL_MAX) focal = FOCAL_MAX
+        if (focal < FOCAL_MIN) focal = FOCAL_MIN
+    }
+
     def render() {
         render(scene.edges)
     }
@@ -45,10 +58,6 @@ class Camera {
             gfx.drawLine((int)it.begin.x, (int)it.begin.y, (int)it.end.x, (int)it.end.y);
         }
 
-    }
-
-    void translate(Point3D vector) {
-        translation = translation.add(vector)
     }
 
     private Edge translatePoint(Edge edge3d) {
