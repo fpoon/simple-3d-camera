@@ -18,7 +18,7 @@ class Main {
 
         def frame = swing.frame(
                 title: "Simple 3D camera",
-                size: [600, 400],
+                size: [800, 600],
                 defaultCloseOperation: WindowConstants.EXIT_ON_CLOSE
         ) {
             panel(layout: new BorderLayout()) {
@@ -35,11 +35,9 @@ class Main {
                 panel(constraints: BorderLayout.CENTER, background: Color.BLACK, id: "renderPanel")
             }
         }
-        frame.setVisible(true);
-        Camera camera = new Camera(swing."renderPanel")
-        camera.edges.add(new Edge(new Point(10, 20), new Point(150, 40)))
-        camera.edges.add(new Edge(new Point(10, 20), new Point(15, 40)))
-        camera.edges.add(new Edge(new Point(100, 20), new Point(150, 4)))
-        camera.draw()
+        frame.setVisible(true)
+        Scene scene = new Scene()
+        Camera camera = new Camera(swing."renderPanel", scene)
+        camera.render()
     }
 }
