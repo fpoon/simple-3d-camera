@@ -69,6 +69,22 @@ class Camera {
         }
     }
 
+    def sort(def faces) {
+        def result = []
+        faces.each {
+            if (it.edges.any {!(Double.isFinite(it.begin.z) && Double.isFinite(it.end.z))})
+                return
+            result += it
+        }
+
+        result = result.sort {
+            def zs = it.edges.collect {it.begin.z}
+            return zs.sum() / zs.size()
+        }
+
+        return result.reverse()
+    }
+
     def render() {
         render(scene.faces)
     }
@@ -77,14 +93,14 @@ class Camera {
         def gfx = panel.graphics
         gfx.setColor(Color.BLACK)
         gfx.fillRect(0, 0, panel.width, panel.height)
-        faces.collect {
+        sort(faces.collect {
             def face = new Face()
             face.color = it.color
             face.edges = it.edges.collect {
                 translatePoint(it)
             }
             return face
-        }.each {
+        }).each {
             if (it.edges.any {!(Double.isFinite(it.begin.z) && Double.isFinite(it.end.z))})
                 return
             gfx.color = it.color
@@ -139,7 +155,7 @@ class Camera {
         def mltp = focal / point.z
         def x = mltp * point.x + windowTranslation.x
         def y = windowTranslation.y - mltp * point.y
-        return new Point3D(x, y, point.z > 0 ? 0 : Double.NaN)
+        return new Point3D(x, y, point.z > 0 ? point.z : Double.NaN)
     }
 
 
