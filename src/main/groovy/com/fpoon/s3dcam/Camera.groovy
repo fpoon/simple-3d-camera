@@ -70,16 +70,18 @@ class Camera {
     }
 
     def sort(def faces) {
-        def result = []
-        faces.each {
-            if (it.edges.any {!(Double.isFinite(it.begin.z) && Double.isFinite(it.end.z))})
-                return
-            result += it
-        }
+        def result = faces
 
         result = result.sort {
             def zs = it.edges.collect {it.begin.z}
-            return zs.sum() / zs.size()
+            def xs = it.edges.collect {it.begin.x}
+            def ys = it.edges.collect {it.begin.y}
+
+            def avgx = xs.sum() / xs.size()
+            def avgy = ys.sum() / ys.size()
+            def avgz = zs.sum() / zs.size()
+
+            return new Point3D(avgx, avgy, avgz).distance(Point3D.ZERO)
         }
 
         return result.reverse()
@@ -93,14 +95,14 @@ class Camera {
         def gfx = panel.graphics
         gfx.setColor(Color.BLACK)
         gfx.fillRect(0, 0, panel.width, panel.height)
-        sort(faces.collect {
+        sort(faces).collect {
             def face = new Face()
             face.color = it.color
             face.edges = it.edges.collect {
                 translatePoint(it)
             }
             return face
-        }).each {
+        }.each {
             if (it.edges.any {!(Double.isFinite(it.begin.z) && Double.isFinite(it.end.z))})
                 return
             gfx.color = it.color
