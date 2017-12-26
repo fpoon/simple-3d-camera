@@ -42,7 +42,14 @@ class Camera {
     }
 
     void translate(Point3D vector) {
-        scene.edges = scene.edges.collect { new Edge(it.begin.add(vector), it.end.add(vector), it.color) }
+        scene.faces = scene.faces.collect {
+            def f = new Face();
+            f.edges = it.edges.collect() {
+                new Edge(it.begin.add(vector), it.end.add(vector), it.color)
+            }
+            f.setColor(it.color)
+            return f;
+        }
     }
 
     void zoom(double change) {
@@ -52,22 +59,44 @@ class Camera {
     }
 
     void rotate(Point3D vector) {
-        scene.edges = scene.edges.collect { new Edge(rotate(it.begin, vector), rotate(it.end, vector), it.color) }
+        scene.faces = scene.faces.collect {
+            def f = new Face();
+            f.edges = it.edges.collect() {
+                new Edge(rotate(it.begin, vector), rotate(it.end, vector), it.color)
+            }
+            f.setColor(it.color)
+            return f;
+        }
     }
 
     def render() {
-        render(scene.edges)
+        render(scene.faces)
     }
 
-    def render(Edge[] edges) {
+    def render(Face[] faces) {
         def gfx = panel.graphics
         gfx.setColor(Color.BLACK)
         gfx.fillRect(0, 0, panel.width, panel.height)
-        edges.collect { translatePoint(it) }.each {
-            if (!(Double.isFinite(it.begin.z) && Double.isFinite(it.end.z)))
+        faces.collect {
+            def face = new Face()
+            face.color = it.color
+            face.edges = it.edges.collect {
+                translatePoint(it)
+            }
+            return face
+        }.each {
+            if (it.edges.any {!(Double.isFinite(it.begin.z) && Double.isFinite(it.end.z))})
                 return
             gfx.color = it.color
-            gfx.drawLine((int) it.begin.x, (int) it.begin.y, (int) it.end.x, (int) it.end.y);
+            gfx.fillPolygon(
+                    it.edges.collect {(int)it.begin.x}.toArray() as int[],
+                    it.edges.collect {(int)it.begin.y}.toArray() as int[],
+                    it.edges.length,
+            )
+            it.edges.each {
+                gfx.color = it.color
+                gfx.drawLine((int) it.begin.x, (int) it.begin.y, (int) it.end.x, (int) it.end.y);
+            }
         }
         frame++;
     }
