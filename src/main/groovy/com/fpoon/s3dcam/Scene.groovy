@@ -5,6 +5,7 @@ import javafx.geometry.Point3D
 import java.awt.Color
 
 class Scene {
+    static DEPTH = 2
     Face[] faces
 
     Scene() {
@@ -372,6 +373,10 @@ class Scene {
                 ]
         ]
 
+        defs = defs.collectMany {
+            splitTriangle(pfl(it['edges'][0][0]), pfl(it['edges'][1][0]), pfl(it['edges'][2][0]), it['color'], it['edges'][0][1], DEPTH)
+        }
+
         defs.each {
             def edges = []
             it['edges'].eachWithIndex { v, idx ->
@@ -388,5 +393,36 @@ class Scene {
             face.color = it['color'];
             faces += face;
         }
+    }
+
+    Point3D pfl(list) {
+        return new Point3D(list[0] as double, list[1] as double, list[2] as double)
+    }
+
+    def splitTriangle(Point3D v1, Point3D v2, Point3D v3, fill, color, depth) {
+        def ret = []
+
+        if (depth == 0) {
+            ret += [
+                    edges: [
+                            [[v1.x, v1.y, v1.z], color],
+                            [[v2.x, v2.y, v2.z], color],
+                            [[v3.x, v3.y, v3.z], color]
+                            ],
+                    color: fill
+                    ]
+            return ret;
+        }
+
+        def v1v2 = v1.midpoint(v2)
+        def v2v3 = v2.midpoint(v3)
+        def v3v1 = v3.midpoint(v1)
+
+        ret = ret + splitTriangle(v1, v1v2, v3v1, fill, color, depth-1)
+        ret = ret + splitTriangle(v2, v2v3, v1v2, fill, color, depth-1)
+        ret = ret + splitTriangle(v3, v3v1, v2v3, fill, color, depth-1)
+        ret = ret + splitTriangle(v1v2, v2v3, v3v1, fill, color, depth-1)
+
+        return ret
     }
 }
