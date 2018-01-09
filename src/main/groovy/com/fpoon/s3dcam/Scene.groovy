@@ -18,7 +18,6 @@ class Scene {
                 [
                         edges: [
                                 [[0.0, 0.0, 0.0], Color.GREEN],
-                                [[50.0, 0.0, 0.0], Color.GREEN],
                                 [[50.0, 120.0, 0.0], Color.GREEN],
                                 [[0.0, 120.0, 0.0], Color.GREEN],
                         ],
@@ -26,8 +25,23 @@ class Scene {
                 ],
                 [
                         edges: [
+                                [[0.0, 0.0, 0.0], Color.GREEN],
+                                [[50.0, 0.0, 0.0], Color.GREEN],
+                                [[50.0, 120.0, 0.0], Color.GREEN],
+                        ],
+                        color: new Color(0x77, 0xff, 0x77)
+                ],
+                [
+                        edges: [
                                 [[0.0, 0.0, 120.0], Color.GREEN],
                                 [[50.0, 0.0, 120.0], Color.GREEN],
+                                [[50.0, 120.0, 120.0], Color.GREEN],
+                        ],
+                        color: new Color(0x77, 0xff, 0x77)
+                ],
+                [
+                        edges: [
+                                [[0.0, 0.0, 120.0], Color.GREEN],
                                 [[50.0, 120.0, 120.0], Color.GREEN],
                                 [[0.0, 120.0, 120.0], Color.GREEN],
                         ],
@@ -36,7 +50,6 @@ class Scene {
                 [
                         edges: [
                                 [[0.0, 0.0, 0.0], Color.GREEN],
-                                [[0.0, 0.0, 120.0], Color.GREEN],
                                 [[50.0, 0.0, 120.0], Color.GREEN],
                                 [[50.0, 0.0, 0.0], Color.GREEN],
                         ],
@@ -46,6 +59,20 @@ class Scene {
                         edges: [
                                 [[0.0, 0.0, 0.0], Color.GREEN],
                                 [[0.0, 0.0, 120.0], Color.GREEN],
+                                [[50.0, 0.0, 120.0], Color.GREEN]
+                        ],
+                        color: new Color(0x77, 0xff, 0x77)
+                ],
+                [
+                        edges: [
+                                [[0.0, 0.0, 0.0], Color.GREEN],
+                                [[0.0, 0.0, 120.0], Color.GREEN],
+                                [[0.0, 120.0, 120.0], Color.GREEN],
+                        ],
+                        color: new Color(0x77, 0xff, 0x77)
+                ],[
+                        edges: [
+                                [[0.0, 0.0, 0.0], Color.GREEN],
                                 [[0.0, 120.0, 120.0], Color.GREEN],
                                 [[0.0, 120.0, 0.0], Color.GREEN],
                         ],
@@ -54,7 +81,22 @@ class Scene {
                 [
                         edges: [
                                 [[50.0, 0.0, 0.0], Color.GREEN],
+                                [[50.0, 120.0, 120.0], Color.GREEN],
+                                [[50.0, 120.0, 0.0], Color.GREEN],
+                        ],
+                        color: new Color(0x77, 0xff, 0x77)
+                ],
+                [
+                        edges: [
+                                [[50.0, 0.0, 0.0], Color.GREEN],
                                 [[50.0, 0.0, 120.0], Color.GREEN],
+                                [[50.0, 120.0, 120.0], Color.GREEN],
+                        ],
+                        color: new Color(0x77, 0xff, 0x77)
+                ],
+                [
+                        edges: [
+                                [[0.0, 120.0, 0.0], Color.GREEN],
                                 [[50.0, 120.0, 120.0], Color.GREEN],
                                 [[50.0, 120.0, 0.0], Color.GREEN],
                         ],
@@ -64,8 +106,7 @@ class Scene {
                         edges: [
                                 [[0.0, 120.0, 0.0], Color.GREEN],
                                 [[0.0, 120.0, 120.0], Color.GREEN],
-                                [[50.0, 120.0, 120.0], Color.GREEN],
-                                [[50.0, 120.0, 0.0], Color.GREEN],
+                                [[50.0, 120.0, 120.0], Color.GREEN]
                         ],
                         color: new Color(0x77, 0xff, 0x77)
                 ],
@@ -73,9 +114,24 @@ class Scene {
                 [
                         edges: [
                                 [[0.0, 0.0, 250], Color.RED],
-                                [[50.0, 0.0, 250], Color.RED],
                                 [[50.0, 200, 250], Color.RED],
                                 [[0.0, 200, 250], Color.RED],
+                        ],
+                        color: new Color(0xff, 0x77, 0x77)
+                ],
+                [
+                        edges: [
+                                [[0.0, 0.0, 250], Color.RED],
+                                [[50.0, 0.0, 250], Color.RED],
+                                [[50.0, 200, 250], Color.RED],
+                        ],
+                        color: new Color(0xff, 0x77, 0x77)
+                ],
+                [
+                        edges: [
+                                [[0.0, 0.0, 140], Color.RED],
+                                [[50.0, 200, 140], Color.RED],
+                                [[0.0, 200, 140], Color.RED],
                         ],
                         color: new Color(0xff, 0x77, 0x77)
                 ],
@@ -84,7 +140,14 @@ class Scene {
                                 [[0.0, 0.0, 140], Color.RED],
                                 [[50.0, 0.0, 140], Color.RED],
                                 [[50.0, 200, 140], Color.RED],
-                                [[0.0, 200, 140], Color.RED],
+                        ],
+                        color: new Color(0xff, 0x77, 0x77)
+                ],
+                [
+                        edges: [
+                                [[0.0, 0.0, 140], Color.RED],
+                                [[50.0, 0.0, 250], Color.RED],
+                                [[50.0, 0.0, 140], Color.RED],
                         ],
                         color: new Color(0xff, 0x77, 0x77)
                 ],
@@ -93,7 +156,14 @@ class Scene {
                                 [[0.0, 0.0, 140], Color.RED],
                                 [[0.0, 0.0, 250], Color.RED],
                                 [[50.0, 0.0, 250], Color.RED],
-                                [[50.0, 0.0, 140], Color.RED],
+                        ],
+                        color: new Color(0xff, 0x77, 0x77)
+                ],
+                [
+                        edges: [
+                                [[0.0, 0.0, 140], Color.RED],
+                                [[0.0, 200, 250], Color.RED],
+                                [[0.0, 200, 140], Color.RED],
                         ],
                         color: new Color(0xff, 0x77, 0x77)
                 ],
@@ -102,7 +172,6 @@ class Scene {
                                 [[0.0, 0.0, 140], Color.RED],
                                 [[0.0, 0.0, 250], Color.RED],
                                 [[0.0, 200, 250], Color.RED],
-                                [[0.0, 200, 140], Color.RED],
                         ],
                         color: new Color(0xff, 0x77, 0x77)
                 ],
@@ -110,6 +179,21 @@ class Scene {
                         edges: [
                                 [[50.0, 0.0, 140], Color.RED],
                                 [[50.0, 0.0, 250], Color.RED],
+                                [[50.0, 200, 250], Color.RED],
+                        ],
+                        color: new Color(0xff, 0x77, 0x77)
+                ],
+                [
+                        edges: [
+                                [[50.0, 0.0, 140], Color.RED],
+                                [[50.0, 200, 250], Color.RED],
+                                [[50.0, 200, 140], Color.RED],
+                        ],
+                        color: new Color(0xff, 0x77, 0x77)
+                ],
+                [
+                        edges: [
+                                [[0.0, 200, 140], Color.RED],
                                 [[50.0, 200, 250], Color.RED],
                                 [[50.0, 200, 140], Color.RED],
                         ],
@@ -120,7 +204,6 @@ class Scene {
                                 [[0.0, 200, 140], Color.RED],
                                 [[0.0, 200, 250], Color.RED],
                                 [[50.0, 200, 250], Color.RED],
-                                [[50.0, 200, 140], Color.RED],
                         ],
                         color: new Color(0xff, 0x77, 0x77)
                 ],
@@ -130,6 +213,13 @@ class Scene {
                                 [[60.0, 0.0, 0], new Color(0x77, 0x77, 0x77)],
                                 [[60.0, 0.0, 250], new Color(0x77, 0x77, 0x77)],
                                 [[250.0, 0, 250], new Color(0x77, 0x77, 0x77)],
+                        ],
+                        color: Color.WHITE
+                ],
+                [
+                        edges: [
+                                [[60.0, 0.0, 0], new Color(0x77, 0x77, 0x77)],
+                                [[250.0, 0, 250], new Color(0x77, 0x77, 0x77)],
                                 [[250.0, 0, 0], new Color(0x77, 0x77, 0x77)],
                         ],
                         color: Color.WHITE
@@ -138,9 +228,16 @@ class Scene {
                 [
                         edges: [
                                 [[260, 0, 140], Color.YELLOW],
-                                [[260, 0, 250], Color.YELLOW],
                                 [[370, 0, 250], Color.YELLOW],
                                 [[370, 0, 140], Color.YELLOW],
+                        ],
+                        color: new Color(0xff, 0xff, 0x77)
+                ],
+                [
+                        edges: [
+                                [[260, 0, 140], Color.YELLOW],
+                                [[260, 0, 250], Color.YELLOW],
+                                [[370, 0, 250], Color.YELLOW],
                         ],
                         color: new Color(0xff, 0xff, 0x77)
                 ],
@@ -181,6 +278,13 @@ class Scene {
                         edges: [
                                 [[260, 0.0, 0], Color.BLUE],
                                 [[370.0, 0.0, 0], Color.BLUE],
+                                [[370.0, 120.0, 0], Color.BLUE]
+                        ],
+                        color: new Color(0x77, 0x77, 0xff)
+                ],
+                [
+                        edges: [
+                                [[260, 0.0, 0], Color.BLUE],
                                 [[370.0, 120.0, 0], Color.BLUE],
                                 [[260, 80.0, 0], Color.BLUE],
                         ],
@@ -189,17 +293,22 @@ class Scene {
                 [
                         edges: [
                                 [[260, 0.0, 120.0], Color.BLUE],
-                                [[370.0, 0.0, 120.0], Color.BLUE],
                                 [[370.0, 120.0, 120.0], Color.BLUE],
                                 [[260, 80.0, 120.0], Color.BLUE],
                         ],
                         color: new Color(0x77, 0x77, 0xff),
                 ],
-
+                [
+                        edges: [
+                                [[260, 0.0, 120.0], Color.BLUE],
+                                [[370.0, 0.0, 120.0], Color.BLUE],
+                                [[370.0, 120.0, 120.0], Color.BLUE]
+                        ],
+                        color: new Color(0x77, 0x77, 0xff),
+                ],
                 [
                         edges: [
                                 [[260, 0.0, 0.0], Color.BLUE],
-                                [[260, 0.0, 120.0], Color.BLUE],
                                 [[370.0, 0.0, 120.0], Color.BLUE],
                                 [[370.0, 0.0, 0.0], Color.BLUE],
                         ],
@@ -209,6 +318,21 @@ class Scene {
                         edges: [
                                 [[260, 0.0, 0.0], Color.BLUE],
                                 [[260, 0.0, 120.0], Color.BLUE],
+                                [[370.0, 0.0, 120.0], Color.BLUE]
+                        ],
+                        color: new Color(0x77, 0x77, 0xff)
+                ],
+                [
+                        edges: [
+                                [[260, 0.0, 0.0], Color.BLUE],
+                                [[260, 0.0, 120.0], Color.BLUE],
+                                [[260, 80.0, 120.0], Color.BLUE],
+                        ],
+                        color: new Color(0x77, 0x77, 0xff)
+                ],
+                [
+                        edges: [
+                                [[260, 0.0, 0.0], Color.BLUE],
                                 [[260, 80.0, 120.0], Color.BLUE],
                                 [[260, 80.0, 0.0], Color.BLUE],
                         ],
@@ -219,6 +343,13 @@ class Scene {
                                 [[370.0, 0.0, 0.0], Color.BLUE],
                                 [[370.0, 0.0, 120.0], Color.BLUE],
                                 [[370.0, 120, 120.0], Color.BLUE],
+                        ],
+                        color: new Color(0x77, 0x77, 0xff)
+                ],
+                [
+                        edges: [
+                                [[370.0, 0.0, 0.0], Color.BLUE],
+                                [[370.0, 120, 120.0], Color.BLUE],
                                 [[370.0, 120, 0.0], Color.BLUE],
                         ],
                         color: new Color(0x77, 0x77, 0xff)
@@ -227,6 +358,13 @@ class Scene {
                         edges: [
                                 [[260, 80.0, 0.0], Color.BLUE],
                                 [[260, 80.0, 120.0], Color.BLUE],
+                                [[370.0, 120.0, 120.0], Color.BLUE]
+                        ],
+                        color: new Color(0x77, 0x77, 0xff)
+                ],
+                [
+                        edges: [
+                                [[260, 80.0, 0.0], Color.BLUE],
                                 [[370.0, 120.0, 120.0], Color.BLUE],
                                 [[370.0, 120.0, 0.0], Color.BLUE],
                         ],
